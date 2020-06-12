@@ -2,9 +2,9 @@ package com.upgrad.project.main;
 public class MainClass {
     public static void main(String[] args) {
 
-        //do by your self
+        //TODO by your self
 
-        // add Factory implementation her to instantiate MathService
+        // add Factory implementation here to instantiate MathService
 
     }
 }
