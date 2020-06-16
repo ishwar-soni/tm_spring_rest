@@ -1,63 +1,22 @@
 package com.upgrad.mtb.beans;
 
+import lombok.Getter;
+import lombok.Setter;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+@Getter
+@Setter
 public class Employee {
     private int id ;
     private String firstName,lastName;
     private List<String> technologies;
     private Set<String> domains;
     private Map<Integer,String> projects;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public List<String> getTechnologies() {
-        return technologies;
-    }
-
-    public void setTechnologies(List<String> technologies) {
-        this.technologies = technologies;
-    }
-
-    public Set<String> getDomains() {
-        return domains;
-    }
-
-    public void setDomains(Set<String> domains) {
-        this.domains = domains;
-    }
-
-    public Map<Integer, String> getProjects() {
-        return projects;
-    }
-
-    public void setProjects(Map<Integer, String> projects) {
-        this.projects = projects;
-    }
+    private List<Address> addressList;
 
     @Override
     public String toString() {
@@ -68,6 +27,7 @@ public class Employee {
                 ", technologies=" + technologies +
                 ", domains=" + domains +
                 ", projects=" + projects +
+                ", addressList=" + addressList +
                 '}';
     }
 }
