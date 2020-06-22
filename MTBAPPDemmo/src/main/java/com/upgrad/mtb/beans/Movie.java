@@ -1,9 +1,15 @@
 package com.upgrad.mtb.beans;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.Date;
 import java.util.List;
+@Entity
 public class Movie {
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String name;
 
@@ -17,8 +23,24 @@ public class Movie {
 
     private String trailerURL;
 
-    @Autowired
-    private Language language ;
+    public Movie(int id, String name, String description, Date releaseDate, int duration, String coverPhotoURL, String trailerURL) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.releaseDate = releaseDate;
+        this.duration = duration;
+        this.coverPhotoURL = coverPhotoURL;
+        this.trailerURL = trailerURL;
+    }
+    public Movie( String name, String description, Date releaseDate, int duration, String coverPhotoURL, String trailerURL) {
+
+        this.name = name;
+        this.description = description;
+        this.releaseDate = releaseDate;
+        this.duration = duration;
+        this.coverPhotoURL = coverPhotoURL;
+        this.trailerURL = trailerURL;
+    }
 
     public int getId() {
         return id;
@@ -74,27 +96,5 @@ public class Movie {
 
     public void setTrailerURL(String trailerURL) {
         this.trailerURL = trailerURL;
-    }
-
-    public Language getLanguage() {
-        return language;
-    }
-
-    public void setLanguage(Language language) {
-        this.language = language;
-    }
-
-    @Override
-    public String toString() {
-        return "Movie{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", releaseDate=" + releaseDate +
-                ", duration=" + duration +
-                ", coverPhotoURL='" + coverPhotoURL + '\'' +
-                ", trailerURL='" + trailerURL + '\'' +
-                ", language=" + language +
-                '}';
     }
 }

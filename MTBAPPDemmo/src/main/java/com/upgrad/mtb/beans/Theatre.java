@@ -1,71 +1,24 @@
 package  com.upgrad.mtb.beans;
 
+import jdk.internal.instrumentation.InstrumentationMethod;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.persistence.*;
 import java.util.List;
 
-
+@Entity
+@Table(name="TheatreMaster")
 public class Theatre {
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id ;
 
-    private int id;
-
+    //@Column(columnDefinition = "varchar2(100) check in('IMAX','CITY PRIDE')",updatable = true)
     private String name;
 
     private int noOfSeats;
 
     private int ticketPrice;
 
-    @Autowired
-    Movie movie;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getNoOfSeats() {
-        return noOfSeats;
-    }
-
-    public void setNoOfSeats(int noOfSeats) {
-        this.noOfSeats = noOfSeats;
-    }
-
-    public int getTicketPrice() {
-        return ticketPrice;
-    }
-
-    public void setTicketPrice(int ticketPrice) {
-        this.ticketPrice = ticketPrice;
-    }
-
-    public Movie getMovie() {
-        return movie;
-    }
-
-    public void setMovie(Movie movie) {
-        this.movie = movie;
-    }
-
-    @Override
-    public String toString() {
-        return "Theatre{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", noOfSeats=" + noOfSeats +
-                ", ticketPrice=" + ticketPrice +
-                ", movie=" + movie +
-                '}';
-    }
 }
+
+

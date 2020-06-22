@@ -1,11 +1,18 @@
 
 package  com.upgrad.mtb.beans;
+import com.sun.xml.bind.v2.model.core.ID;
 import jdk.nashorn.internal.objects.annotations.Getter;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.List;
 
+@Entity
 public class Language {
-    private int id;
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id ;
     private String language;
 
     public int getId() {
