@@ -1,11 +1,10 @@
 package com.upgrad.mtb.beans;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 @Entity
 public class Movie {
@@ -22,6 +21,13 @@ public class Movie {
     private String coverPhotoURL;
 
     private String trailerURL;
+
+    @ManyToMany(mappedBy = "movies")
+    List<Theatre> theatres ;
+
+    @ManyToOne
+    Language language;
+
 
     public Movie(int id, String name, String description, Date releaseDate, int duration, String coverPhotoURL, String trailerURL) {
         this.id = id;
